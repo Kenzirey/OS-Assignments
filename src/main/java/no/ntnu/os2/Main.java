@@ -1,7 +1,5 @@
 package no.ntnu.os2;
 
-import no.ntnu.os2.MovieTicketServer;
-import no.ntnu.os2.MovieTicketClient;
 public class Main {
 
 	public static void main(String[] args) {
