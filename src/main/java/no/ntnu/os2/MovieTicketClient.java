@@ -21,8 +21,13 @@ public class MovieTicketClient extends Thread {
 
 	@Override
 	public void run() {
-		server.bookTicket(name, numberOfTickets);
-		LOGGER.log(Level.INFO, "{0} booked {1} tickets", new Object[]{name, numberOfTickets});
+		try {
+			server.bookTicket(name, numberOfTickets);
+			LOGGER.log(Level.INFO, "{0} booked {1} tickets", new Object[]{name, numberOfTickets});
+		} catch (IllegalStateException ise) {
+			LOGGER.log(Level.WARNING, "Failed to book tickets for {0}", name);
+		}
+
 	}
 
 }
