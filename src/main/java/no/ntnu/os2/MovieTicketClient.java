@@ -1,9 +1,14 @@
 package no.ntnu.os2;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * This class represents a client that books tickets for a movie.
  */
 public class MovieTicketClient extends Thread {
+	private static final Logger LOGGER = Logger.getLogger(MovieTicketClient.class.getName());
+
 	private String name;
 	private int numberOfTickets;
 	private MovieTicketServer server;
@@ -15,8 +20,8 @@ public class MovieTicketClient extends Thread {
 
 	@Override
 	public void run() {
-		server.bookTicket(numberOfTickets);
-		System.out.println(name + " booked " + numberOfTickets + " tickets");
+		server.bookTicket(name, numberOfTickets);
+		LOGGER.log(Level.INFO, "{0} booked {1} tickets", new Object[]{name, numberOfTickets});
 	}
 
 }
