@@ -9,9 +9,10 @@ import java.util.logging.Logger;
 public class MovieTicketClient extends Thread {
 	private static final Logger LOGGER = Logger.getLogger(MovieTicketClient.class.getName());
 
-	private String name;
-	private int numberOfTickets;
-	private MovieTicketServer server;
+	private final String name;
+	private final int numberOfTickets;
+	private final MovieTicketServer server;
+
 	public MovieTicketClient(MovieTicketServer server, String name, int tickets) {
 		this.name = name;
 		this.server = server;
